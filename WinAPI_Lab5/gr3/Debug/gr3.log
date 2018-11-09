@@ -1,4 +1,0 @@
-﻿  main.cpp
-c:\users\qdera\desktop\repositories\winapi_lab5\gr3\main.cpp(64): warning C4101: wmId: неиспользованная локальная переменная
-c:\users\qdera\desktop\repositories\winapi_lab5\gr3\main.cpp(64): warning C4101: wmEvent: неиспользованная локальная переменная
-  gr3.vcxproj -> C:\Users\Qdera\Desktop\Repositories\WinAPI_Lab5\Debug\WinApi_LAB5.exe
