@@ -9,5 +9,7 @@
 
 #define BTN_PUSH  110
 
+#define TEXTBOX 01
+
 #define MAX_LOADSTRING 100
 

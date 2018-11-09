@@ -1,4 +1,4 @@
-﻿Построение начато 09.11.2018 12:40:27.
+﻿Построение начато 09.11.2018 13:41:27.
      1>Проект "C:\Users\Qdera\Desktop\Repositories\WinAPI_Lab5\gr3\gr3.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
          Создание "Debug\WinApi_LAB5.unsuccessfulbuild", так как было задано "AlwaysCreate".
@@ -6,9 +6,8 @@
          Для всех выходных данных обновления не требуется.
          C:\Program Files (x86)\Microsoft Visual Studio 10\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\WinApi_LAB5.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>c:\users\qdera\desktop\repositories\winapi_lab5\gr3\main.cpp(102): warning C4101: wmId: неиспользованная локальная переменная
-     1>c:\users\qdera\desktop\repositories\winapi_lab5\gr3\main.cpp(102): warning C4101: wmEvent: неиспользованная локальная переменная
-     1>c:\users\qdera\desktop\repositories\winapi_lab5\gr3\main.cpp(112): warning C4700: использована неинициализированная локальная переменная "field"
+     1>c:\users\qdera\desktop\repositories\winapi_lab5\gr3\main.cpp(67): warning C4101: wmId: неиспользованная локальная переменная
+     1>c:\users\qdera\desktop\repositories\winapi_lab5\gr3\main.cpp(67): warning C4101: wmEvent: неиспользованная локальная переменная
        ResourceCompile:
          Для всех выходных данных обновления не требуется.
        ManifestResourceCompile:
@@ -31,4 +30,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:00.42
+Затраченное время: 00:00:00.36

@@ -10,4 +10,4 @@
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы
 #include <complex>
 #include <math.h>
-#include <windows.h>
+#include <locale.h>
