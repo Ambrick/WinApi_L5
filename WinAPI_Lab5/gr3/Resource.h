@@ -13,3 +13,7 @@
 
 #define MAX_LOADSTRING 100
 
+using namespace std;
+
+bool flow_control = true;
+HWND box_out, btn;

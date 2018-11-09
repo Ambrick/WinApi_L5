@@ -59,9 +59,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)//ф-ия. для создания окна
    return TRUE;
 }
 
-bool flow_control=true;
-HWND box_out, btn;
-
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId, wmEvent;
@@ -89,13 +86,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			switch (LOWORD(wParam)){
 				case BTN_PUSH:{
 					flow_control = !flow_control;
-					char str[]={"рулетка"};
-					SendMessage( (HWND) box_out, (UINT) WM_SETTEXT, (WPARAM) 0, (LPARAM) str);
+					char str[]="\nпроблемы?";
+					SetWindowTextA ( box_out,  str);
+					/*
+					int value =  wParam ;
+					string popka;
+					popka += value;
+					SetWindowTextA(box_out, (LPCSTR) value);*/
+
 					break;
-					}
-				case WM_LBUTTONDBLCLK:
-					{
-						
 					}
 			}
 			break;
@@ -104,6 +103,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			{
 			hdc = BeginPaint(hWnd, &ps);
 
+			
 			EndPaint(hWnd, &ps);
 			break;
 			}

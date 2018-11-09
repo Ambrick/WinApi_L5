@@ -1,33 +1,4 @@
-﻿Построение начато 09.11.2018 13:41:27.
-     1>Проект "C:\Users\Qdera\Desktop\Repositories\WinAPI_Lab5\gr3\gr3.vcxproj" в узле 2 (целевые объекты build).
-     1>InitializeBuildStatus:
-         Создание "Debug\WinApi_LAB5.unsuccessfulbuild", так как было задано "AlwaysCreate".
-       ClCompile:
-         Для всех выходных данных обновления не требуется.
-         C:\Program Files (x86)\Microsoft Visual Studio 10\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\WinApi_LAB5.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
-     1>c:\users\qdera\desktop\repositories\winapi_lab5\gr3\main.cpp(67): warning C4101: wmId: неиспользованная локальная переменная
-     1>c:\users\qdera\desktop\repositories\winapi_lab5\gr3\main.cpp(67): warning C4101: wmEvent: неиспользованная локальная переменная
-       ResourceCompile:
-         Для всех выходных данных обновления не требуется.
-       ManifestResourceCompile:
-         Для всех выходных данных обновления не требуется.
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Qdera\Desktop\Repositories\WinAPI_Lab5\Debug\WinApi_LAB5.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\WinApi_LAB5.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Qdera\Desktop\Repositories\WinAPI_Lab5\Debug\WinApi_LAB5.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Qdera\Desktop\Repositories\WinAPI_Lab5\Debug\WinApi_LAB5.lib" /MACHINE:X86 Debug\main.res
-         Debug\WinApi_LAB5.exe.embed.manifest.res
-         Debug\main.obj
-         Debug\stdafx.obj
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\WinApi_LAB5.exe.embed.manifest" /manifest Debug\WinApi_LAB5.exe.intermediate.manifest
-         Для всех выходных данных обновления не требуется.
-       LinkEmbedManifest:
-         Для всех выходных данных обновления не требуется.
-         gr3.vcxproj -> C:\Users\Qdera\Desktop\Repositories\WinAPI_Lab5\Debug\WinApi_LAB5.exe
-       FinalizeBuildStatus:
-         Файл "Debug\WinApi_LAB5.unsuccessfulbuild" удаляется.
-         Обращение к "Debug\WinApi_LAB5.lastbuildstate".
-     1>Построение проекта "C:\Users\Qdera\Desktop\Repositories\WinAPI_Lab5\gr3\gr3.vcxproj" завершено (целевые объекты build).
-
-Построение успешно завершено.
-
-Затраченное время: 00:00:00.36
+﻿  main.cpp
+c:\users\qdera\desktop\repositories\winapi_lab5\gr3\main.cpp(64): warning C4101: wmId: неиспользованная локальная переменная
+c:\users\qdera\desktop\repositories\winapi_lab5\gr3\main.cpp(64): warning C4101: wmEvent: неиспользованная локальная переменная
+  gr3.vcxproj -> C:\Users\Qdera\Desktop\Repositories\WinAPI_Lab5\Debug\WinApi_LAB5.exe
