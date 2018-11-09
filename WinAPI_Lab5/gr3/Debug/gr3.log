@@ -1,0 +1,33 @@
+﻿Построение начато 09.11.2018 12:01:03.
+     1>Проект "C:\Users\Qdera\Desktop\Graph_LAB3\gr3\gr3.vcxproj" в узле 2 (целевые объекты build).
+     1>InitializeBuildStatus:
+         Создание "Debug\gr3.unsuccessfulbuild", так как было задано "AlwaysCreate".
+       ClCompile:
+         Для всех выходных данных обновления не требуется.
+         C:\Program Files (x86)\Microsoft Visual Studio 10\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\gr3.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt gr3.cpp
+         gr3.cpp
+     1>c:\users\qdera\desktop\graph_lab3\gr3\gr3.cpp(102): warning C4101: wmId: неиспользованная локальная переменная
+     1>c:\users\qdera\desktop\graph_lab3\gr3\gr3.cpp(102): warning C4101: wmEvent: неиспользованная локальная переменная
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Debug\gr3.res" gr3.rc 
+       ManifestResourceCompile:
+         Для всех выходных данных обновления не требуется.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Qdera\Desktop\Graph_LAB3\Debug\gr3.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\gr3.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Qdera\Desktop\Graph_LAB3\Debug\gr3.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Qdera\Desktop\Graph_LAB3\Debug\gr3.lib" /MACHINE:X86 Debug\gr3.res
+         Debug\gr3.exe.embed.manifest.res
+         Debug\gr3.obj
+         Debug\stdafx.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\gr3.exe.embed.manifest" /manifest Debug\gr3.exe.intermediate.manifest
+         Для всех выходных данных обновления не требуется.
+       LinkEmbedManifest:
+         Для всех выходных данных обновления не требуется.
+         gr3.vcxproj -> C:\Users\Qdera\Desktop\Graph_LAB3\Debug\gr3.exe
+       FinalizeBuildStatus:
+         Файл "Debug\gr3.unsuccessfulbuild" удаляется.
+         Обращение к "Debug\gr3.lastbuildstate".
+     1>Построение проекта "C:\Users\Qdera\Desktop\Graph_LAB3\gr3\gr3.vcxproj" завершено (целевые объекты build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:00.75
