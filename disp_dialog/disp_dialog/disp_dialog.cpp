@@ -1,7 +1,7 @@
 ﻿#include "resource.h"
 
 bool flow_control = true;
-HWND box_out, btn, firstcmds;
+HWND box_out, cntrl, firstcmds;
 map < int, string > commands = {
 //{1, "WM_CREATE" },
 //{2, "WM_DESTROY" },
@@ -286,7 +286,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	switch (message) {
 	case WM_CREATE:
 	{
-		btn = CreateWindowEx(NULL,
+		cntrl = CreateWindowEx(NULL,
 			L"BUTTON", L"Cntrl",
 			WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
 			10, 10, 290, 30,
@@ -303,8 +303,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			WS_CHILD | WS_VISIBLE | WS_BORDER | ES_LEFT | ES_MULTILINE | WS_EX_RTLREADING | WS_EX_STATICEDGE | ES_AUTOHSCROLL | WS_VSCROLL | WS_EX_RTLREADING | WS_EX_LEFTSCROLLBAR,
 			10, 50, 400, 500,
 			hWnd, (HMENU)TEXTBOX, GetModuleHandle(NULL), NULL);
-
-
 			
 		break;
 	}
@@ -348,7 +346,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	return 0;
 }
 
-HINSTANCE hInst;                      // текущий экземпляр
+HINSTANCE hInst;                     // текущий экземпляр
 WCHAR szTitle[100];                  // Текст строки заголовка
 WCHAR szWindowClass[100];            // имя класса главного окна
 
@@ -388,7 +386,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 		NULL, NULL,
 		hInstance, NULL);
 
-	if (!hWnd) return FALSE;
+	if (!hWnd) 
+		return FALSE;
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
 	return TRUE;
