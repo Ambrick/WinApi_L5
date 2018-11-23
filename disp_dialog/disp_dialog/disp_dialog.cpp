@@ -1,7 +1,10 @@
 ﻿#include "resource.h"
 
+//контроль вывода
 bool flow_control = true;
+//объявление окон
 HWND box_out, cntrl, firstcmds;
+//хэш-массив параметров с названием
 map < int, string > commands = {
 //{1, "WM_CREATE" },
 //{2, "WM_DESTROY" },
@@ -269,13 +272,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId = LOWORD(wParam);
 
+	//первыые пятьдесят входящих сообщений сохраняем в строку
 	if (k < 50) {
 		s += "wParam =[" + to_string(wmId) + "],\r\n";
 		k++;
 	}
 
+	//стандартный вывод, если есть параметр в хэш массиве и есть разрешение на вывод
 	if (flow_control && commands.count(wmId) == 1) {
+		//ищем название параметра по ключю
 		auto search = commands.find(wmId);
+		//собираем строку
 		string  s_msg = "wParam =[" + to_string(wmId)+ "], " + search->second + "\r\n";
 		char *c_msg = new char[s_msg.length() + 1];
 		strcpy(c_msg, s_msg.c_str());
@@ -286,18 +293,21 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	switch (message) {
 	case WM_CREATE:
 	{
+		//создаем окно-кнопку для переключение вывода
 		cntrl = CreateWindowEx(NULL,
 			L"BUTTON", L"Cntrl",
 			WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
 			10, 10, 290, 30,
 			hWnd, (HMENU)BTN_CNTRL, GetModuleHandle(NULL), NULL);
 
+		//создаем окно-кнопку для вывода первых команд
 		firstcmds = CreateWindowEx(NULL,
 			L"BUTTON", L"First",
 			WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
 			300, 10, 100, 30,
 			hWnd, (HMENU)BTN_FIRST, GetModuleHandle(NULL), NULL);
 
+		//текстовое поле вывода
 		box_out = CreateWindowEx(NULL,
 			L"Edit", NULL,
 			WS_CHILD | WS_VISIBLE | WS_BORDER | ES_LEFT | ES_MULTILINE | WS_EX_RTLREADING | WS_EX_STATICEDGE | ES_AUTOHSCROLL | WS_VSCROLL | WS_EX_RTLREADING | WS_EX_LEFTSCROLLBAR,
@@ -308,6 +318,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	}
 	case WM_COMMAND:
 	{
+		//при нажатии на кнопку контроля вывода
 		if (wmId == BTN_CNTRL) {
 			flow_control = !flow_control;
 			if (flow_control) {
@@ -320,6 +331,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			break;
 		}
 		
+		//при нажатии на кнопку вывода первых сообщений
 		if (wmId == BTN_FIRST) {
 			flow_control = false;
 			char *c_msg = new char[s.length() + 1];
