@@ -1,19 +1,16 @@
 ﻿#include "resource.h"
 
-//контроль вывода
 bool flow_control = true;
-//объявление окон
 HWND box_out, cntrl, firstcmds;
-//хэш-массив параметров с названием
 map < int, string > commands = {
-//{1, "WM_CREATE" },
-//{2, "WM_DESTROY" },
+{1, "WM_CREATE" },
+{2, "WM_DESTROY" },
 {3, "WM_MOVE" },
 {5, "WM_SIZE" },
 {6, "WM_ACTIVATE" },
 {7, "WM_SETFOCUS" },
 //{8, "WM_KILLFOCUS" },
-//{10, "WM_ENABLE" },
+{10, "WM_ENABLE" },
 {11, "WM_SETREDRAW" },
 //{12, "WM_SETTEXT" },
 {13, "WM_GETTEXT" },
@@ -34,7 +31,7 @@ map < int, string > commands = {
 {29, "WM_FONTCHANGE" },
 {30, "WM_TIMECHANGE" },
 {31, "WM_CANCELMODE" },
-{32, "WM_SETCURSOR" },
+//{32, "WM_SETCURSOR" },
 {33, "WM_MOUSEACTIVATE" },
 {34, "WM_CHILDACTIVATE" },
 {35, "WM_QUEUESYNC" },
@@ -143,7 +140,7 @@ map < int, string > commands = {
 {271, "WM_IME_COMPOSITION" },
 {271, "WM_IME_KEYLAST" },
 {272, "WM_INITDIALOG" },
-{273, "WM_COMMAND" },
+//{273, "WM_COMMAND" },
 {274, "WM_SYSCOMMAND" },
 {275, "WM_TIMER" },
 {276, "WM_HSCROLL" },
@@ -163,9 +160,9 @@ map < int, string > commands = {
 {296, "WM_UPDATEUISTATE" },
 {297, "WM_QUERYUISTATE" },
 {306, "WM_CTLCOLORMSGBOX" },
-{307, "WM_CTLCOLOREDIT" },
+//{307, "WM_CTLCOLOREDIT" },
 {308, "WM_CTLCOLORLISTBOX" },
-{309, "WM_CTLCOLORBTN" },
+//{309, "WM_CTLCOLORBTN" },
 {310, "WM_CTLCOLORDLG" },
 {311, "WM_CTLCOLORSCROLLBAR" },
 {312, "WM_CTLCOLORSTATIC" },
@@ -265,28 +262,32 @@ map < int, string > commands = {
 {911, "WM_PENWINLAST" },
 };
 
-int k = 0;
-string s;
+int str_count = -1, buffer = -1;
+string first_str;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId = LOWORD(wParam);
 
-	//первыые пятьдесят входящих сообщений сохраняем в строку
-	if (k < 50) {
-		s += "wParam =[" + to_string(wmId) + "],\r\n";
-		k++;
+	if (str_count++ < 100) {
+		if (commands.count(message) == 1) {
+			auto search = commands.find(message);
+			first_str += "MSG =" + to_string(message) + ", [" + search->second + "], wParam = [" + to_string(wmId) + "]\r\n";
+		}
+		else
+			first_str += "MSG =" + to_string(message) + ", wParam = [ " + to_string(wmId) + "]\r\n";
 	}
 
-	//стандартный вывод, если есть параметр в хэш массиве и есть разрешение на вывод
-	if (flow_control && commands.count(wmId) == 1) {
-		//ищем название параметра по ключю
-		auto search = commands.find(wmId);
-		//собираем строку
-		string  s_msg = "wParam =[" + to_string(wmId)+ "], " + search->second + "\r\n";
+	if (flow_control && commands.count(message) == 1) {
+		auto search = commands.find(message);
+		string  s_msg ="MSG =" + to_string(message) + ", ["+ search->second + "], wParam = [" + to_string(wmId)+ "]\r\n";
 		char *c_msg = new char[s_msg.length() + 1];
 		strcpy(c_msg, s_msg.c_str());
 
+		if (buffer++ == 250) {
+			SendMessageA(box_out, WM_SETTEXT, 0, (LPARAM) "");
+			buffer = 0;
+		}
 		SendMessageA(box_out, EM_REPLACESEL, 0, (LPARAM) c_msg);
 	}
 
@@ -310,7 +311,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		//текстовое поле вывода
 		box_out = CreateWindowEx(NULL,
 			L"Edit", NULL,
-			WS_CHILD | WS_VISIBLE | WS_BORDER | ES_LEFT | ES_MULTILINE | WS_EX_RTLREADING | WS_EX_STATICEDGE | ES_AUTOHSCROLL | WS_VSCROLL | WS_EX_RTLREADING | WS_EX_LEFTSCROLLBAR,
+			WS_CHILD | WS_VISIBLE | ES_AUTOHSCROLL | WS_VSCROLL | WS_BORDER | ES_LEFT | ES_MULTILINE | WS_EX_RTLREADING | WS_EX_STATICEDGE ,
 			10, 50, 400, 500,
 			hWnd, (HMENU)TEXTBOX, GetModuleHandle(NULL), NULL);
 			
@@ -334,8 +335,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		//при нажатии на кнопку вывода первых сообщений
 		if (wmId == BTN_FIRST) {
 			flow_control = false;
-			char *c_msg = new char[s.length() + 1];
-			strcpy(c_msg, s.c_str());
+			char *c_msg = new char[first_str.length() + 1];
+			strcpy(c_msg, first_str.c_str());
 			SendMessageA(box_out, WM_SETTEXT, 0, (LPARAM) c_msg);
 			break;
 		}

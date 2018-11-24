@@ -1,6 +1,6 @@
 ﻿  disp_dialog.cpp
-c:\users\qdera\desktop\repositories\disp_dialog\disp_dialog\disp_dialog.cpp(281): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\qdera\desktop\repositories\winapi_l5\disp_dialog\disp_dialog\disp_dialog.cpp(285): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note:  см. объявление "strcpy"
-c:\users\qdera\desktop\repositories\disp_dialog\disp_dialog\disp_dialog.cpp(326): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\qdera\desktop\repositories\winapi_l5\disp_dialog\disp_dialog\disp_dialog.cpp(339): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\string.h(133): note:  см. объявление "strcpy"
-  disp_dialog.vcxproj -> C:\Users\Qdera\Desktop\Repositories\disp_dialog\Debug\disp_dialog.exe
+  disp_dialog.vcxproj -> C:\Users\Qdera\Desktop\Repositories\WinApi_L5\disp_dialog\Debug\disp_dialog.exe
