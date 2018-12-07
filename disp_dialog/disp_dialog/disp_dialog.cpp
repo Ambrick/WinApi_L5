@@ -12,7 +12,7 @@ map < int, string > commands = {
 //{8, "WM_KILLFOCUS" },
 {10, "WM_ENABLE" },
 {11, "WM_SETREDRAW" },
-//{12, "WM_SETTEXT" },
+{12, "WM_SETTEXT" },
 {13, "WM_GETTEXT" },
 {14, "WM_GETTEXTLENGTH" },
 {15, "WM_PAINT" },
@@ -262,7 +262,7 @@ map < int, string > commands = {
 {911, "WM_PENWINLAST" },
 };
 
-int str_count = -1, buffer = -1;
+int str_count = 0, buffer = 0;
 string first_str;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -281,14 +281,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	if (flow_control && commands.count(message) == 1) {
 		auto search = commands.find(message);
 		string  s_msg ="MSG =" + to_string(message) + ", ["+ search->second + "], wParam = [" + to_string(wmId)+ "]\r\n";
-		char *c_msg = new char[s_msg.length() + 1];
-		strcpy(c_msg, s_msg.c_str());
 
 		if (buffer++ == 250) {
 			SendMessageA(box_out, WM_SETTEXT, 0, (LPARAM) "");
 			buffer = 0;
 		}
-		SendMessageA(box_out, EM_REPLACESEL, 0, (LPARAM) c_msg);
+		SendMessageA(box_out, EM_REPLACESEL, 0, (LPARAM)s_msg.c_str());
 	}
 
 	switch (message) {
@@ -335,9 +333,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		//при нажатии на кнопку вывода первых сообщений
 		if (wmId == BTN_FIRST) {
 			flow_control = false;
-			char *c_msg = new char[first_str.length() + 1];
-			strcpy(c_msg, first_str.c_str());
-			SendMessageA(box_out, WM_SETTEXT, 0, (LPARAM) c_msg);
+			SendMessageA(box_out, WM_SETTEXT, 0, (LPARAM) first_str.c_str());
 			break;
 		}
 		
